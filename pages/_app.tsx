@@ -1,18 +1,21 @@
-import { DefaultSeo } from 'next-seo'
-import 'lazysizes'
-import '@brainhubeu/react-carousel/lib/style.css'
+import { DefaultSeo } from "next-seo";
+import Router from "next/router";
+import withGA from "next-ga";
+import "lazysizes";
+import "@brainhubeu/react-carousel/lib/style.css";
 // Import css files
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-import '../styles/index.css'
+import "../styles/index.css";
 
-export default function MyApp({ Component, pageProps }) {
-
+const MyApp = ({ Component, pageProps }) => {
   return (
     <div className={`mx-auto`}>
       <DefaultSeo />
       <Component {...pageProps} />
     </div>
-  )
-}
+  );
+};
+
+export default withGA("UA-228491076-1", Router)(MyApp);
