@@ -1,10 +1,10 @@
-import Document, { Html, Head, Main, NextScript } from 'next/document'
-import { LocalBusinessJsonLd } from 'next-seo'
+import Document, { Html, Head, Main, NextScript } from "next/document";
+import { LocalBusinessJsonLd } from "next-seo";
 
 class MyDocument extends Document {
   static async getInitialProps(ctx) {
-    const initialProps = await Document.getInitialProps(ctx)
-    return { ...initialProps }
+    const initialProps = await Document.getInitialProps(ctx);
+    return { ...initialProps };
   }
 
   render() {
@@ -21,15 +21,15 @@ class MyDocument extends Document {
             name="Royalty Carpet and Tile Cleaning"
             description="Carpet cleaning service in Round Rock, Texas"
             address={{
-              streetAddress: '2007 Montclair Dr',
-              addressLocality: 'Round Rock',
-              addressRegion: 'TX',
-              postalCode: '78664',
-              addressCountry: 'US',
+              streetAddress: "2007 Montclair Dr",
+              addressLocality: "Round Rock",
+              addressRegion: "TX",
+              postalCode: "78664",
+              addressCountry: "US",
             }}
             geo={{
-              latitude: '30.484976',
-              longitude: '-97.6802681',
+              latitude: "30.484976",
+              longitude: "-97.6802681",
             }}
             url="https://www.royaltycarpetcleaning.net"
             telephone="+5129831812"
@@ -59,14 +59,22 @@ class MyDocument extends Document {
         &noscript=1"
             />
           </noscript>
+          <script
+            id="housecall-pro-chat-bubble"
+            src="https://chat.housecallpro.com/proChat.js"
+            type="text/javascript"
+            data-color="#a0aec0"
+            data-organization="b0c4c76e-5c25-41d4-b35f-1584f801d811"
+            defer
+          ></script>
         </Head>
         <body>
           <Main />
           <NextScript />
         </body>
       </Html>
-    )
+    );
   }
 }
 
-export default MyDocument
+export default MyDocument;
