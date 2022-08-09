@@ -10,7 +10,7 @@ class Default extends React.Component {
       <PlausibleProvider domain="royaltycarpetcleaning.net">
         <div className="flex flex-col md:mx-auto md:w-full min-h-screen">
           <Navbar />
-          <main className="flex-col flex-grow w-full">
+          <main className="flex-col flex-grow w-full relative">
             {this.props.children}
           </main>
           <Footer />

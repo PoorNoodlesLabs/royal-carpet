@@ -1,15 +1,14 @@
-import { TiPhoneOutline } from 'react-icons/ti'
-import Rating from 'react-rating'
+import Default from "../components/layouts/Default";
+import SEO from "../components/SEO";
+import config from "../utils/config";
+import OptimizedImage from "../components/OptimizedImage";
+import OptimizedCarousel from "../components/OptimizedCarousel";
+import { CTAs } from "../components/CTAs";
+import { reviews } from "../data/reviews";
+import { NextPageContext } from "next";
+import axios from "axios";
 
-import Default from '../components/layouts/Default'
-import SEO from '../components/SEO'
-import config from '../utils/config'
-import OptimizedImage from '../components/OptimizedImage'
-import OptimizedCarousel from '../components/OptimizedCarousel'
-import { CTAs } from '../components/CTAs'
-import { reviews } from '../data/reviews'
-
-export default function Home() {
+export default function Home({ reviews }) {
   return (
     <Default>
       <SEO
@@ -147,5 +146,22 @@ export default function Home() {
         </div>
       </div>
     </Default>
-  )
+  );
 }
+
+// get static props
+export const getStaticProps = async (ctx: NextPageContext) => {
+  const apiKey = process.env.GOOGLE_DEV_API_KEY || "";
+  const placeId = process.env.PLACE_ID || "";
+
+  const reviewData = await axios.get(
+    `https://maps.googleapis.com/maps/api/place/details/json?place_id=${placeId}&fields=name%2Crating%2Creview&key=${apiKey}`
+  );
+  const reviews = reviewData.data.result.reviews;
+  return {
+    props: {
+      reviews,
+    },
+    unstable_revalidate: 10,
+  };
+};

@@ -1,31 +1,26 @@
-import Link from 'next/link'
-import { useState } from 'react'
+import Link from "next/link";
+import { useState } from "react";
 
-import Menu from '../components/svgs/Menu'
-import Close from '../components/svgs/Close'
-import OptimizedImage from '../components/OptimizedImage'
+import Menu from "../components/svgs/Menu";
+import Close from "../components/svgs/Close";
+import OptimizedImage from "../components/OptimizedImage";
+import { CTAs } from "./CTAs";
 
 const links = [
-  { text: 'About', url: '/about' },
-  { text: 'Results', url: '/results' },
-  // { text: 'Contact', url: '/contact' },
-  { text: 'FAQS', url: '/faqs' },
-]
+  { text: "About", url: "/about" },
+  { text: "Results", url: "/results" },
+  { text: "FAQS", url: "/faqs" },
+];
 
 export default function () {
-  const [hidden, setHidden] = useState(true)
+  const [hidden, setHidden] = useState(true);
 
   return (
     <>
-      <nav className="flex md:flex-col items-center justify-between flex-wrap p-6 text-gray-900">
+      <nav className="flex md:flex-col items-center justify-between flex-wrap p-6 text-gray-900 sticky top-0 z-50 bg-white">
         <div className="flex items-center flex-shrink-1">
           <Link href="/">
             <a>
-              {/* <OptimizedImage
-                fileName="logo.png"
-                altText="Royalty Carpet and Tile Logo"
-                classes="w-1/2 md:w-1/5"
-              /> */}
               <h2 className="text-2xl md:text-3xl font-bold">
                 Royalty Carpet & Tile
               </h2>
@@ -44,7 +39,7 @@ export default function () {
         <div className="w-full block flex-grow md:flex md:items-center md:w-auto">
           <div
             className={`md:flex-grow md:flex md:justify-end ${
-              hidden ? 'hidden' : ''
+              hidden ? "hidden" : ""
             }`}
           >
             <div>
@@ -57,15 +52,20 @@ export default function () {
                       </div>
                     </a>
                   </Link>
-                )
+                );
               })}
               <Link href="contact">
                 <a className="btn text-md">Contact</a>
               </Link>
+              <div>
+                <a href="https://housecallpro.com/book/Royalty-Carpet--Tile-Cleaning/331682fdd7e241ecb6a8ac97c3680572">
+                  <button className="btn">Book Online Now</button>
+                </a>
+              </div>
             </div>
           </div>
         </div>
       </nav>
     </>
-  )
+  );
 }

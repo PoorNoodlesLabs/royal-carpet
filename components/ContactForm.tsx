@@ -1,25 +1,25 @@
-import { useState, useEffect } from 'react'
-import fetch from 'isomorphic-unfetch'
-import useForm from '../hooks/useForm'
-import { validateForm } from '../utils/validateForm'
+import { useState, useEffect } from "react";
+import fetch from "isomorphic-unfetch";
+import useForm from "../hooks/useForm";
+import { validateForm } from "../utils/validateForm";
 
 export default function () {
-  const [sent, setSent] = useState(false)
+  const [sent, setSent] = useState(false);
 
   const submit = async () => {
-    const response = await fetch('api/airtable', {
-      method: 'POST',
+    const response = await fetch("api/airtable", {
+      method: "POST",
       headers: {
         secret: process.env.SITE_SECRET,
       },
       body: JSON.stringify(values),
-    })
-    const data = await response.json()
+    });
+    const data = await response.json();
     if (data) {
-      setIsSubmitting(false)
-      setSent(true)
+      setIsSubmitting(false);
+      setSent(true);
     }
-  }
+  };
 
   const {
     values,
@@ -29,47 +29,37 @@ export default function () {
     isSubmitting,
     setIsSubmitting,
   }: {
-    values: any
-    errors: any
-    handleChange: any
-    handleSubmit: any
-    isSubmitting: boolean
-    setIsSubmitting: any
-  } = useForm(submit, validateForm)
+    values: any;
+    errors: any;
+    handleChange: any;
+    handleSubmit: any;
+    isSubmitting: boolean;
+    setIsSubmitting: any;
+  } = useForm(submit, validateForm);
 
   useEffect(() => {
-    if(isSubmitting) {
-      setSent(false)
+    if (isSubmitting) {
+      setSent(false);
     }
-  }, [isSubmitting])
+  }, [isSubmitting]);
 
   const renderSubmitButton = () => {
     if (!isSubmitting && !sent) {
-      return 'send'
+      return "send";
     }
 
     if (!isSubmitting && sent) {
-      return 'sent'
+      return "sent";
     }
 
     if (isSubmitting) {
-      return '...sending'
+      return "...sending";
     }
-  }
-
-  const renderSending = () => {
-    return '...sending'
-  }
-
-  const renderSent = () => {
-    return 'sent'
-  }
+  };
 
   return (
     <div>
-      <h2 className="text-3xl font-extrabold  my-4">
-        Contact Us
-      </h2>
+      <h2 className="text-3xl font-extrabold  my-4">Contact Us</h2>
       <form className="w-full max-w-lg" onSubmit={handleSubmit} noValidate>
         <div className="flex flex-wrap -mx-3">
           <div className="w-full md:w-1/2 px-3 md:mb-0">
@@ -81,14 +71,14 @@ export default function () {
             </label>
             <input
               className={`text-black bg-gray-300 appearance-none block w-full rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-gray-200 ${
-                errors.name ? 'border-l-4 border-red-700' : ''
+                errors.name ? "border-l-4 border-red-700" : ""
               }`}
               id="grid-full-name"
               type="text"
               placeholder="First Last"
-              autoComplete="name"
+              autoComplete="given-name"
               name="name"
-              value={values.name || ''}
+              value={values.name || ""}
               onChange={handleChange}
               autoFocus
             />
@@ -103,13 +93,13 @@ export default function () {
             </label>
             <input
               className={`text-black bg-gray-300 appearance-none block w-full rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-gray-200 focus-gray-500 ${
-                errors.email ? 'border-l-4 border-red-700' : ''
+                errors.email ? "border-l-4 border-red-700" : ""
               }`}
               id="grid-email"
               type="email"
               name="email"
               placeholder="you@email.com"
-              value={values.email || ''}
+              value={values.email || ""}
               onChange={handleChange}
             />
             {errors.email && <p className="text-red-700">{errors.email}</p>}
@@ -124,7 +114,7 @@ export default function () {
           </label>
           <input
             className={`text-black bg-gray-300 appearance-none block w-full rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-gray-200 focus-gray-500 ${
-              errors.company ? 'border-l-4 border-red-700' : ''
+              errors.company ? "border-l-4 border-red-700" : ""
             }`}
             id="company"
             type="text"
@@ -133,7 +123,67 @@ export default function () {
             value={values.company}
             onChange={handleChange}
           />
-          {errors.email && <p className="text-red-700">{errors.email}</p>}
+          {errors.company && <p className="text-red-700">{errors.company}</p>}
+        </div>
+        <div className="w-full py-4">
+          <label
+            className="block uppercase tracking-wide text-xs font-bold mb-2"
+            htmlFor="grid-company"
+          >
+            Address
+          </label>
+          <input
+            className={`text-black bg-gray-300 appearance-none block w-full rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-gray-200 focus-gray-500 ${
+              errors.Address ? "border-l-4 border-red-700" : ""
+            }`}
+            id="Address"
+            type="address"
+            name="address"
+            placeholder="123 Main St."
+            value={values.Address}
+            onChange={handleChange}
+          />
+          {errors.address && <p className="text-red-700">{errors.address}</p>}
+        </div>
+        <div className="w-full py-4">
+          <label
+            className="block uppercase tracking-wide text-xs font-bold mb-2"
+            htmlFor="grid-phone"
+          >
+            Phone
+          </label>
+          <input
+            className={`text-black bg-gray-300 appearance-none block w-full rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-gray-200 focus-gray-500 ${
+              errors.phone ? "border-l-4 border-red-700" : ""
+            }`}
+            id="phone"
+            type="tel"
+            name="phone"
+            placeholder="(512) 555-555"
+            value={values.phone}
+            onChange={handleChange}
+          />
+          {errors.phone && <p className="text-red-700">{errors.phone}</p>}
+        </div>
+        <div className="w-full py-4">
+          <label
+            className="block uppercase tracking-wide text-xs font-bold mb-2"
+            htmlFor="grid-source"
+          >
+            How did you hear about us?
+          </label>
+          <input
+            className={`text-black bg-gray-300 appearance-none block w-full rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-gray-200 focus-gray-500 ${
+              errors.source ? "border-l-4 border-red-700" : ""
+            }`}
+            id="source"
+            type="text"
+            name="source"
+            placeholder="google, facebook, etc."
+            value={values.source}
+            onChange={handleChange}
+          />
+          {errors.source && <p className="text-red-700">{errors.source}</p>}
         </div>
         <div className="flex flex-wrap -mx-3 mb-6">
           <div className="w-full px-3">
@@ -146,26 +196,23 @@ export default function () {
             <p className="text-gray-600 text-xs italic">How can we help you?</p>
             <textarea
               className={`text-black bg-gray-300 appearance-none block w-full rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-gray-200 focus-gray-500 ${
-                errors.message ? 'border-l-4 border-red-700' : ''
+                errors.message ? "border-l-4 border-red-700" : ""
               }`}
               id="grid-message"
               name="message"
               placeholder="Message"
-              value={values.message || ''}
+              value={values.message || ""}
               onChange={handleChange}
             />
             {errors.message && (
               <p className="text-red-700 mb-3">{errors.message}</p>
             )}
-            <button
-              type="submit"
-              className="btn"
-            >
-              { renderSubmitButton() }
+            <button type="submit" className="btn">
+              {renderSubmitButton()}
             </button>
           </div>
         </div>
       </form>
     </div>
-  )
+  );
 }

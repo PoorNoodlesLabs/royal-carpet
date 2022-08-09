@@ -1,13 +1,15 @@
-import ReactCompareImage from 'react-compare-image'
-import { AiFillStar, AiOutlineStar } from 'react-icons/ai'
-import Rating from 'react-rating'
+import ReactCompareImage from "react-compare-image";
+import { AiFillStar, AiOutlineStar } from "react-icons/ai";
+import Rating from "react-rating";
 
-import DefaultLayout from '../components/layouts/Default'
-import SEO from '../components/SEO'
-import { reviews } from '../data/reviews'
-import { CTAs } from '../components/CTAs'
+import DefaultLayout from "../components/layouts/Default";
+import SEO from "../components/SEO";
+import { reviews } from "../data/reviews";
+import { CTAs } from "../components/CTAs";
+import { NextPageContext } from "next";
+import axios from "axios";
 
-export default function () {
+export default function ({ reviews }) {
   return (
     <DefaultLayout>
       <SEO
@@ -25,17 +27,17 @@ export default function () {
         <CTAs />
         <div className="grid gap-2 px-4 md:gap-6 md:grid-cols-3">
           <div className="my-6">
-            <h3 className="text-2xl mb-4 font-bold md:my-4 text-center">
+            <h3 className="text-2xl mb-4 font-bold md:my-4 text-center text-ellipsis overflow-hidden">
               Carpet Cleaning
             </h3>
             <ReactCompareImage
               leftImage={require(`../assets/images/room-before.png`)}
               rightImage={require(`../assets/images/room-after.png`)}
-              leftImageAlt='Dirty carpet in Round Rock Before'
-              rightImageAlt='Clean carpet in Round Rock After'
+              leftImageAlt="Dirty carpet in Round Rock Before"
+              rightImageAlt="Clean carpet in Round Rock After"
             />
             <div className="px-2">
-              <h3 className="text-xl font-bold mt-2 text-center">
+              <h3 className="text-xl font-bold mt-2 text-center text-ellipsis overflow-hidden">
                 Carpet Care Tips
               </h3>
               <ul className="list-disc ml-6">
@@ -58,15 +60,15 @@ export default function () {
             </div>
           </div>
           <div className="my-6">
-            <h3 className="text-2xl my-4 font-bold text-center">
+            <h3 className="text-2xl my-4 font-bold text-center text-ellipsis overflow-hidden">
               Tile Cleaning
             </h3>
             <ReactCompareImage
               leftImage={require(`../assets/images/tile-before.png`)}
               rightImage={require(`../assets/images/tile-after.png`)}
-              rightImageCss={{ height: '100%' }}
-              leftImageAlt='Dirty tile floor in Austin before'
-              rightImageAlt='Clean tile floor in Austin after'
+              rightImageCss={{ height: "100%" }}
+              leftImageAlt="Dirty tile floor in Austin before"
+              rightImageAlt="Clean tile floor in Austin after"
             />
             <div className="px-2">
               <h3 className="text-xl font-bold mt-2 text-center">
@@ -105,9 +107,9 @@ export default function () {
             <ReactCompareImage
               leftImage={require(`../assets/images/upholstery-dirty.png`)}
               rightImage={require(`../assets/images/upholstery-clean.png`)}
-              rightImageCss={{ height: '100%' }}
-              leftImageAlt='Dirty upholstery Pflugerville before'
-              rightImageAlt='Clean upholstery Pflugerville after'
+              rightImageCss={{ height: "100%" }}
+              leftImageAlt="Dirty upholstery Pflugerville before"
+              rightImageAlt="Clean upholstery Pflugerville after"
             />
             <div className="px-2">
               <h3 className="text-xl font-bold mt-2 text-center">
@@ -148,14 +150,15 @@ export default function () {
             </h3>
           </a>
           <hr className="border-t-4 self-center border-brand-medium w-1/12 mb-2 md:mb-4" />
-          <div className="grid grid-cols-1 grid-gap-2 md:grid-cols-3">
+          <div className="grid grid-cols-1 lg:grid-cols-2 grid-gap-2">
             {reviews &&
               reviews.map((review, i) => {
                 return (
-                  <div className="p-4 leading-relaxed" key={review.reviewer}>
-                    {review.title && <h3 className="">{review.title}</h3>}
-                    <p className="text-gray-600 italic">{review.quote}</p>
-                    <h4 className="font-bold ">- {review.reviewer}</h4>
+                  <div className="p-4 leading-relaxed" key={review.author_name}>
+                    {review.author_name && (
+                      <h3 className="">{review.author_name}</h3>
+                    )}
+                    <p className="text-gray-600 italic">{review.text}</p>
                     <span>
                       {review.rating && (
                         <Rating
@@ -169,12 +172,38 @@ export default function () {
                         />
                       )}
                     </span>
+                    <a
+                      href={review.author_url}
+                      target="_blank"
+                      className="cursor-pointer"
+                    >
+                      <p className="text-sm text-blue-600">
+                        {review.relative_time_description}
+                      </p>
+                    </a>
                   </div>
-                )
+                );
               })}
           </div>
         </div>
       </div>
     </DefaultLayout>
-  )
+  );
 }
+
+// get static props
+export const getStaticProps = async (ctx: NextPageContext) => {
+  const apiKey = process.env.GOOGLE_DEV_API_KEY || "";
+  const placeId = process.env.PLACE_ID || "";
+
+  const reviewData = await axios.get(
+    `https://maps.googleapis.com/maps/api/place/details/json?place_id=${placeId}&fields=name%2Crating%2Creview&key=${apiKey}`
+  );
+  const reviews = reviewData.data.result.reviews;
+  return {
+    props: {
+      reviews,
+    },
+    unstable_revalidate: 10,
+  };
+};
