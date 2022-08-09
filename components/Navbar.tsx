@@ -42,12 +42,12 @@ export default function () {
               hidden ? "hidden" : ""
             }`}
           >
-            <div>
+            <div className="flex flex-col gap-2 md:mt-4 md:flex md:flex-row md:gap-2 md:items-center md:justify-center">
               {links.map((link) => {
                 return (
                   <Link href={link.url} key={link.url}>
                     <a>
-                      <div className="mx-1 block mt-4 font-semibold md:inline-block md:mt-0 hover:text-gray-700 mr-4">
+                      <div className="mx-1 block font-semibold md:inline-block md:mt-0 hover:text-gray-700 mr-4">
                         {link.text}
                       </div>
                     </a>
@@ -55,7 +55,9 @@ export default function () {
                 );
               })}
               <Link href="contact">
-                <a className="btn text-md">Contact</a>
+                <div>
+                  <a className="btn">Contact</a>
+                </div>
               </Link>
               <div>
                 <a href="https://housecallpro.com/book/Royalty-Carpet--Tile-Cleaning/331682fdd7e241ecb6a8ac97c3680572">
