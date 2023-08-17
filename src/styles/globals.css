@@ -1,0 +1,127 @@
+/* @import "../node_modules/prismjs/themes/prism-tomorrow.css"; */
+
+/* purgecss start ignore */
+@tailwind base;
+
+:root {
+  --main-brand-color: #eee;
+  --main-brand-color-medium: rgb(160, 174, 192);
+}
+
+h1 {
+  @apply text-2xl;
+  font-weight: 900;
+  font-family: var(--font-noto-sans);
+}
+h2 {
+  @apply text-xl;
+  font-weight: 700;
+  font-family: var(--font-noto-sans);
+}
+h3 {
+  @apply text-lg;
+  font-weight: 700;
+  font-family: var(--font-noto-sans);
+}
+h4 {
+  @apply text-base font-normal;
+  font-family: var(--font-noto-sans);
+}
+h5 {
+  @apply text-sm;
+  font-family: var(--font-noto-sans);
+}
+h6 {
+  @apply text-xs;
+  font-family: var(--font-noto-sans);
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-noto-sans);
+  @apply text-gray-900;
+}
+
+body,
+p,
+span,
+a {
+  @apply text-gray-900 font-normal;
+  font-family: var(--font-open-sans);
+}
+
+.bg-main-gradient {
+  background: rgb(3, 18, 255);
+  background: radial-gradient(
+    circle,
+    rgba(3, 18, 255, 1) 0%,
+    rgba(70, 237, 252, 1) 100%
+  );
+}
+
+@tailwind components;
+@tailwind utilities;
+
+.slick-next:before {
+  @apply text-xl;
+}
+
+.slick-prev:before {
+  @apply text-xl;
+}
+
+.slick-track {
+  @apply bg-gray-200;
+}
+
+.bg-brand {
+  background-color: var(--main-brand-color);
+}
+
+.bg-brand-med {
+  background-color: var(--main-brand-color-medium);
+}
+
+.text-brand {
+  color: var(--main-brand-color);
+}
+
+.text-brand-med {
+  color: var(--main-brand-color-medium);
+}
+
+.border-brand {
+  border-color: var(--main-brand-color);
+}
+
+.border-brand-med {
+  border-color: var(--main-brand-color-medium);
+}
+
+.gradient-brand {
+  background: rgb(0, 44, 194);
+  background: linear-gradient(
+    90deg,
+    rgba(0, 44, 194, 1) 0%,
+    rgba(58, 85, 186, 1) 50%,
+    rgba(0, 182, 255, 1) 100%
+  );
+}
+
+.btn {
+  @apply inline-block px-4 py-2 leading-none border rounded border-black;
+}
+
+.btn:hover {
+  @apply border-transparent bg-black text-white;
+}
+
+.line-clamp {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}

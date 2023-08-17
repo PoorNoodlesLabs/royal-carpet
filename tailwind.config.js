@@ -1,7 +1,18 @@
 module.exports = {
   content: ["./src/**/*.{js,ts,jsx,tsx,mdx}"],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        lato: ["var(--font-lato)"],
+        raleway: ["var(--font-raleway)"],
+        notoSans: ["var(--font-noto-sans)"],
+        openSans: ["var(--font-open-sans)"],
+      },
+    },
   },
-  plugins: [],
+  variants: {},
+  purge: [
+    "./src/**/*.{js,ts,jsx,tsx}",
+    "./src/components/**/*.{js,ts,jsx,tsx}",
+  ],
 };

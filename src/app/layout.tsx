@@ -1,34 +1,38 @@
 import { Metadata } from "next";
 import config from "@/utils/config";
-import "lazysizes";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import "@/styles/index.css";
 import PlausibleProvider from "next-plausible";
 import { Lato, Raleway, Noto_Sans_JP, Open_Sans } from "next/font/google";
-
+import Script from "next/script";
+import "@/styles/globals.css";
 // If loading a variable font, you don't need to specify the font weight
 const lato = Lato({
   weight: ["400", "700", "900"],
   display: "swap",
   subsets: ["latin"],
+  variable: "--font-lato",
 });
 
 const raleway = Raleway({
   weight: ["400", "500"],
   display: "swap",
   subsets: ["latin"],
+  variable: "--font-raleway",
 });
 
 const notoSansJP = Noto_Sans_JP({
   weight: ["700"],
   display: "swap",
   subsets: ["latin"],
+  variable: "--font-lato",
 });
 
 const openSans = Open_Sans({
+  weight: ["400", "700"],
   display: "swap",
   subsets: ["latin"],
+  variable: "--font-open-sans",
 });
 
 const jsonLd = {
@@ -73,24 +77,16 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={
-        lato.className +
-        " " +
-        raleway.className +
-        " " +
-        notoSansJP.className +
-        " " +
-        openSans.className
-      }
+      className={`${lato.className} ${raleway.className} ${notoSansJP.className} ${openSans.className}`}
     >
       <PlausibleProvider domain="royaltycarpetcleaning.net">
         <body>{children}</body>
       </PlausibleProvider>
-      <script
+      <Script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <script
+      <Script
         dangerouslySetInnerHTML={{
           __html: `
         !function(f,b,e,v,n,t,s)
@@ -106,22 +102,22 @@ export default function RootLayout({
         `,
         }}
       />
-      <noscript>
+      <Script noModule>
         <img
           height="1"
           width="1"
           src="https://www.facebook.com/tr?id=466267611395999&ev=PageView
         &noscript=1"
         />
-      </noscript>
-      <script
+      </Script>
+      <Script
         id="housecall-pro-chat-bubble"
         src="https://chat.housecallpro.com/proChat.js"
         type="text/javascript"
         data-color="#a0aec0"
         data-organization="b0c4c76e-5c25-41d4-b35f-1584f801d811"
         defer
-      ></script>
+      />
     </html>
   );
 }

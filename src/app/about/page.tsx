@@ -1,5 +1,4 @@
 import DefaultLayout from "@/components/layouts/Default";
-import SEO from "@/components/SEO";
 import { CTAs } from "@/components/CTAs";
 import Image from "next/image";
 import RoseLogo from "@/images/rose-logo.png";
@@ -11,6 +10,7 @@ import Door from "@/images/door.png";
 import Fundraiser from "@/images/fundraiser.png";
 import Rink from "@/images/rink.png";
 import Truck from "@/images/truck.png";
+import Link from "next/link";
 
 export default function () {
   return (
@@ -99,12 +99,14 @@ export default function () {
                 alt="Original Royalty Carpet and Tile Logo from 1986"
                 sizes="100vw"
                 placeholder="blur"
+                className="w-1/2 rounded-md"
               />
               <Image
                 src={RetroVan}
                 alt="Original Royalty Carpet and Tile Work Truck from 1986"
                 sizes="100vw"
                 placeholder="blur"
+                className="w-1/2 rounded-md"
               />
             </div>
             <p className="leading-loose my-4">
@@ -125,12 +127,14 @@ export default function () {
                 alt="Current Royalty Carpet and Tile Logo"
                 sizes="100vw"
                 placeholder="blur"
+                className="w-1/2 rounded-md"
               />
               <Image
                 src={Dad}
                 alt="Bob Winchell next to work truck in the 1900s"
                 sizes="100vw"
                 placeholder="blur"
+                className="w-1/2 rounded-md"
               />
             </div>
           </div>
@@ -195,6 +199,7 @@ export default function () {
                 alt="Company Work Truck in front of Round Rock Central Fire Station after cleaning"
                 sizes="100vw"
                 placeholder="blur"
+                className="w-1/2 rounded-md"
               />
             </div>
           </div>
@@ -216,6 +221,7 @@ export default function () {
                 alt="On the job at Round Rock Central Fire Station"
                 sizes="100vw"
                 placeholder="blur"
+                className="w-1/2 rounded-md"
               />
             </div>
           </div>
@@ -237,23 +243,25 @@ export default function () {
                 alt="Rockin’ City Roller Derby fundraiser"
                 sizes="100vw"
                 placeholder="blur"
+                className="w-1/2 rounded-md"
               />
               <Image
                 src={Rink}
                 alt="Royalty Carpet and Tile proud sponsers of Rockin’ City Roller Derby"
                 sizes="100vw"
                 placeholder="blur"
+                className="w-1/2 rounded-md"
               />
             </div>
             <p className="leading-loose my-4">
               Kelly has been involved in non-profit work for over 15 years and
               serves on the board of{" "}
-              <a
+              <Link
                 href="https://rockincityrollergirls.org/"
                 className="text-blue-600"
               >
                 Rockin’ City Roller Derby
-              </a>{" "}
+              </Link>{" "}
               team in Round Rock, TX. There are many community sponsored events
               in which we are involved in conjunction with Rockin’ City Roller
               Derby. To name just a few, Royalty Carpet & Tile Cleaning has been

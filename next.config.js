@@ -1,3 +1,5 @@
 module.exports = {
-  // Your configuration options go here
+  experimental: {
+    nextScriptWorkers: true,
+  },
 };
