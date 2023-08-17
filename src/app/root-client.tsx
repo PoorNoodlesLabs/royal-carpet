@@ -10,6 +10,7 @@ import { Metadata } from "next";
 import OptimizedCarousel from "@/components/OptimizedCarousel";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://royaltycarpetcleaning.net/"),
   title:
     "Royalty Carpet & Tile Cleaning. Serving all of Austin, Round Rock, Pflugerville, Hutto, Cedar Park, Georgetown, Leander and between!",
   description:
