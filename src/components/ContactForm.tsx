@@ -2,29 +2,48 @@
 
 import { useState, useEffect } from "react";
 import fetch from "isomorphic-unfetch";
-import useForm from "../hooks/useForm";
-import { validateForm } from "../utils/validateForm";
+import { toast, ToastContainer } from "react-toastify";
+import useForm from "@/hooks/useForm";
+import { validateForm } from "@/utils/validateForm";
+
+import "react-toastify/dist/ReactToastify.css";
 
 export default function () {
   const [sent, setSent] = useState(false);
 
   const submit = async () => {
-    const response = await fetch("api/airtable", {
-      method: "POST",
-      headers: {
-        secret: process.env.SITE_SECRET,
-      },
-      body: JSON.stringify(values),
-    });
-    const data = await response.json();
-    if (data) {
-      setIsSubmitting(false);
-      setSent(true);
+    try {
+      const response = await fetch("api/airtable", {
+        method: "POST",
+        headers: {
+          secret: process.env.NEXT_PUBLIC_SITE_SECRET,
+        },
+        body: JSON.stringify(values),
+      });
+      if (response.ok) {
+        setIsSubmitting(false);
+        setSent(true);
+        setValues({
+          name: "",
+          email: "",
+          company: "",
+          Address: "",
+          phone: "",
+          source: "",
+          message: "",
+        });
+        toast.success("Form submitted successfully! We will be in touch soon.");
+      } else {
+        toast.error("Error submitting form. Please try again.");
+      }
+    } catch (error) {
+      toast.error("Error submitting form. Please try again.");
     }
   };
 
   const {
     values,
+    setValues,
     errors,
     handleChange,
     handleSubmit,
@@ -32,6 +51,7 @@ export default function () {
     setIsSubmitting,
   }: {
     values: any;
+    setValues: any;
     errors: any;
     handleChange: any;
     handleSubmit: any;
@@ -51,7 +71,7 @@ export default function () {
     }
 
     if (!isSubmitting && sent) {
-      return "sent";
+      return "sent!";
     }
 
     if (isSubmitting) {
@@ -61,6 +81,7 @@ export default function () {
 
   return (
     <div>
+      <ToastContainer />
       <h2 className="text-3xl font-extrabold  my-4">Contact Us</h2>
       <form className="w-full max-w-lg" onSubmit={handleSubmit} noValidate>
         <div className="flex flex-wrap -mx-3">

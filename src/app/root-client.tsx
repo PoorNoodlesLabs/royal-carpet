@@ -23,14 +23,13 @@ export const metadata: Metadata = {
 export default function Home({ reviews }) {
   return (
     <Default>
-      <div className="w-full rounded-sm md:w-2/3 md:mx-auto">
-        <Image
-          alt="Puppy on clean tile floor"
-          src={HeroImage}
-          sizes="100vw"
-          placeholder="blur"
-        />
-      </div>
+      <Image
+        alt="Puppy on clean tile floor"
+        src={HeroImage}
+        sizes="100vw"
+        placeholder="blur"
+        className="mx-auto rounded-md"
+      />
       <CTAs />
 
       <div className="container mx-auto">

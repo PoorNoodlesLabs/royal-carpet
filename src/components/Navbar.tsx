@@ -43,7 +43,7 @@ export default function () {
               {links.map((link) => {
                 return (
                   <Link href={link.url} key={link.url}>
-                    <span className="mx-1 block font-semibold md:inline-block md:mt-0 hover:text-gray-700 mr-4">
+                    <span className="mx-1 block md:inline-block md:mt-0 hover:text-gray-700 mr-4">
                       {link.text}
                     </span>
                   </Link>

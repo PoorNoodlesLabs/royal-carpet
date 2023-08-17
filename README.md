@@ -3,15 +3,10 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 ## Ueki Dev Starter
 
 Out of the box support for:
-* [Typescript](https://nextjs.org/learn/excel/typescript)
-* [Image Optimization](https://github.com/cyrilwanner/next-optimized-images)
-* [SEO Component](https://nextjs.org/docs/api-reference/next/head)
-* Functional Contact form with simple validations
-* [Tailwindcss](https://tailwindcss.com/) for rapid prototyping
-* MDX blog support `next.config.js`
-  * [Enhanced frontmatter support](https://github.com/hashicorp/next-mdx-enhanced)
-  * [Reading-Time](https://github.com/ngryman/reading-time#readme)
-  * Formatted dates
+
+- [Typescript](https://nextjs.org/learn/excel/typescript)
+- Functional Contact form with simple validations
+- [Tailwindcss](https://tailwindcss.com/) for rapid prototyping
 
 ## Getting Started
 

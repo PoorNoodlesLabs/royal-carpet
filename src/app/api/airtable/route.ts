@@ -1,5 +1,5 @@
 import Airtable from "airtable";
-import redirect from "nextjs-redirect";
+import { NextRequest, NextResponse } from "next/server";
 
 const base = new Airtable({ apiKey: process.env.AIRTABLE_API_KEY }).base(
   process.env.AIRTABLE_BASE_ID
@@ -42,11 +42,7 @@ const addRecordToTable = (
     );
   });
 
-export default async (req, res) => {
-  if (req.method !== "POST") {
-    return res.status(404).end();
-  }
-
+export async function POST(req: NextRequest, res: NextResponse) {
   const {
     email,
     company = "company name",
@@ -55,11 +51,13 @@ export default async (req, res) => {
     address,
     phone,
     source,
-  } = JSON.parse(req.body);
-  const host = req.headers.origin;
+  } = JSON.parse(await req.text());
 
-  if (!host) {
-    return redirect(`${host}/error`, { statusCode: 401 });
+  const clientSecret = req.headers.get("secret");
+  const secret = process.env.SITE_SECRET;
+
+  if (!clientSecret || clientSecret !== secret) {
+    return new NextResponse("Unauthorized", { status: 401 });
   }
 
   try {
@@ -74,9 +72,8 @@ export default async (req, res) => {
     );
   } catch (error) {
     console.error(error);
-    return redirect(`${host}/error`, { statusCode: 401 });
+    return new NextResponse("Internal Server Error", { status: 500 });
   }
 
-  redirect(`${host}/success`);
-  return res.send(200);
-};
+  return new NextResponse("Created", { status: 201 });
+}
