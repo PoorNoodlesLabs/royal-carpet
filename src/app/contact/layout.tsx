@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://royaltycarpetcleaning.net/"),
   title: "Royalty Carpet & Tile - Contact Us Today",
   description: `Contact us today for a free quote! Highly reviewed and in business for over 32 years. Round Rock, Pflugerville, Hutto, Cedar Park, Georgetown, Leander and between.`,
 };
