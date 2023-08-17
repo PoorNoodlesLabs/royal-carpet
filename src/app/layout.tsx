@@ -5,6 +5,31 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "@/styles/index.css";
 import PlausibleProvider from "next-plausible";
+import { Lato, Raleway, Noto_Sans_JP, Open_Sans } from "next/font/google";
+
+// If loading a variable font, you don't need to specify the font weight
+const lato = Lato({
+  weight: ["400", "700", "900"],
+  display: "swap",
+  subsets: ["latin"],
+});
+
+const raleway = Raleway({
+  weight: ["400", "500"],
+  display: "swap",
+  subsets: ["latin"],
+});
+
+const notoSansJP = Noto_Sans_JP({
+  weight: ["700"],
+  display: "swap",
+  subsets: ["latin"],
+});
+
+const openSans = Open_Sans({
+  display: "swap",
+  subsets: ["latin"],
+});
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -46,7 +71,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html
+      lang="en"
+      className={
+        lato.className +
+        " " +
+        raleway.className +
+        " " +
+        notoSansJP.className +
+        " " +
+        openSans.className
+      }
+    >
       <PlausibleProvider domain="royaltycarpetcleaning.net">
         <body>{children}</body>
       </PlausibleProvider>
