@@ -2,9 +2,8 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://royaltycarpetcleaning.net/"),
-  title: "Royalty Carpet & Tile - About Us",
-  description: `Royalty Carpet & Tile Cleaning lives and breathes excellence. It
-        has been a part of our mission statement since 1986.`,
+  title: "Royalty Carpet & Tile - FAQs",
+  description: `Frequently asked questions. Here are some tips and answers to some common questions`,
 };
 
 export default function ({ children }: { children: React.ReactNode }) {
