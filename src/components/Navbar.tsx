@@ -29,6 +29,7 @@ export default function () {
           <button
             className="rounded-md border border-black focus:outline-none"
             onClick={() => setHidden(!hidden)}
+            aria-label="Toggle menu"
           >
             {hidden ? <Menu /> : <Close />}
           </button>
