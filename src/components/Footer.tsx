@@ -63,12 +63,18 @@ export default function () {
           </div>
         </div>
       </div>
-      <div className="flex justify-center">
+      <div className="flex gap-4">
+        <address>
+          9200 Waterford Centre Blvd
+          <br />
+          Suite 100-B
+          <br />
+          Austin, TX 78758
+        </address>
         <address>
           2007 Montclair Dr <br />
           Round Rock, TX 78664
         </address>
-        {/* <GoogleMapImage /> */}
       </div>
     </footer>
   );
