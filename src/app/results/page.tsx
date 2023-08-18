@@ -10,6 +10,7 @@ import ResultsPageClient from "./page-client";
 // import UpholsteryDirty from "@/images/upholstery-dirty.png";
 // import UpholsteryClean from "@/images/upholstery-clean.png";
 import CompareImage from "./compare-image-wrapper";
+import Link from "next/link";
 
 export default async function () {
   const apiKey = process.env.GOOGLE_DEV_API_KEY || "";
@@ -145,7 +146,7 @@ export default async function () {
           </div>
         </div>
         <div className="flex flex-col items-center px-4 my-8">
-          <a
+          <Link
             href="https://client.housecallpro.com/reviews/Royalty-Carpet-&-Tile-Cleaning/b0c4c76e-5c25-41d4-b35f-1584f801d811"
             target="_blank"
             className="text-blue-600"
@@ -153,7 +154,7 @@ export default async function () {
             <h3 className="text-blue-600 text-3xl text-center font-extrabold  mb-2">
               Reviews
             </h3>
-          </a>
+          </Link>
           <hr className="border-t-4 self-center border-brand-medium w-1/12 mb-2 md:mb-4" />
           <ResultsPageClient reviews={reviews} />
         </div>

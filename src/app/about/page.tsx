@@ -259,6 +259,7 @@ export default function () {
               <Link
                 href="https://rockincityrollergirls.org/"
                 className="text-blue-600"
+                target="_blank"
               >
                 Rockin’ City Roller Derby
               </Link>{" "}

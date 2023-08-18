@@ -93,7 +93,7 @@ export default function () {
               Full Name
             </label>
             <input
-              className={`text-black bg-gray-300 appearance-none block w-full rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-gray-200 ${
+              className={`text-black appearance-none block w-full shadow-sm ring-1 ring-inset ring-gray-300 rounded py-3 px-4 mb-3 leading-tight focus:ring-2 focus:ring-inset focus:ring-indigo-600  ${
                 errors.name ? "border-l-4 border-red-700" : ""
               }`}
               id="grid-full-name"
@@ -115,7 +115,7 @@ export default function () {
               Email
             </label>
             <input
-              className={`text-black bg-gray-300 appearance-none block w-full rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-gray-200 focus-gray-500 ${
+              className={`text-black appearance-none block w-full shadow-sm ring-1 ring-inset ring-gray-300 rounded py-3 px-4 mb-3 leading-tight focus:ring-2 focus:ring-inset focus:ring-indigo-600  ${
                 errors.email ? "border-l-4 border-red-700" : ""
               }`}
               id="grid-email"
@@ -136,7 +136,7 @@ export default function () {
             Company
           </label>
           <input
-            className={`text-black bg-gray-300 appearance-none block w-full rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-gray-200 focus-gray-500 ${
+            className={`text-black appearance-none block w-full shadow-sm ring-1 ring-inset ring-gray-300 rounded py-3 px-4 mb-3 leading-tight focus:ring-2 focus:ring-inset focus:ring-indigo-600  ${
               errors.company ? "border-l-4 border-red-700" : ""
             }`}
             id="company"
@@ -156,7 +156,7 @@ export default function () {
             Address
           </label>
           <input
-            className={`text-black bg-gray-300 appearance-none block w-full rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-gray-200 focus-gray-500 ${
+            className={`text-black appearance-none block w-full shadow-sm ring-1 ring-inset ring-gray-300 rounded py-3 px-4 mb-3 leading-tight focus:ring-2 focus:ring-inset focus:ring-indigo-600  ${
               errors.Address ? "border-l-4 border-red-700" : ""
             }`}
             id="Address"
@@ -176,7 +176,7 @@ export default function () {
             Phone
           </label>
           <input
-            className={`text-black bg-gray-300 appearance-none block w-full rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-gray-200 focus-gray-500 ${
+            className={`text-black appearance-none block w-full shadow-sm ring-1 ring-inset ring-gray-300 rounded py-3 px-4 mb-3 leading-tight focus:ring-2 focus:ring-inset focus:ring-indigo-600  ${
               errors.phone ? "border-l-4 border-red-700" : ""
             }`}
             id="phone"
@@ -196,7 +196,7 @@ export default function () {
             How did you hear about us?
           </label>
           <input
-            className={`text-black bg-gray-300 appearance-none block w-full rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-gray-200 focus-gray-500 ${
+            className={`text-black block w-full shadow-sm ring-1 ring-inset ring-gray-300 rounded py-3 px-4 mb-3 leading-tight focus:ring-2 focus:ring-inset focus:ring-indigo-600 ${
               errors.source ? "border-l-4 border-red-700" : ""
             }`}
             id="source"
@@ -218,7 +218,7 @@ export default function () {
             </label>
             <p className="text-gray-600 text-xs italic">How can we help you?</p>
             <textarea
-              className={`text-black bg-gray-300 appearance-none block w-full rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-gray-200 focus-gray-500 ${
+              className={`text-black appearance-none block w-full shadow-sm ring-1 ring-inset ring-gray-300 rounded py-3 px-4 mb-3 leading-tight focus:ring-2 focus:ring-inset focus:ring-indigo-600  ${
                 errors.message ? "border-l-4 border-red-700" : ""
               }`}
               id="grid-message"
@@ -226,6 +226,7 @@ export default function () {
               placeholder="Message"
               value={values.message || ""}
               onChange={handleChange}
+              rows={6}
             />
             {errors.message && (
               <p className="text-red-700 mb-3">{errors.message}</p>
