@@ -2,7 +2,7 @@ import DefaultLayout from "@/components/layouts/Default";
 import ContactForm from "@/components/ContactForm";
 import { GoogleMapImage } from "@/components/GoogleMap";
 import Image from "next/image";
-import Owners from "@/images/owners.jpg";
+import Owners from "@/images/owners.jpeg";
 import Example from "@/components/ContactHero";
 
 export default function () {
