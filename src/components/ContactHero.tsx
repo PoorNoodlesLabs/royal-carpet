@@ -21,10 +21,15 @@ export default function Example({ image }: { image: StaticImageData }) {
             We’re here to help
           </p>
           <p className="mt-6 text-base leading-7 text-gray-600">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et, egestas
-            tempus tellus etiam sed. Quam a scelerisque amet ullamcorper eu enim
-            et fermentum, augue. Aliquet amet volutpat quisque ut interdum
-            tincidunt duis.
+            Here at Royalty Carpet & Tile, we're dedicated to providing
+            top-notch service. With a legacy in the industry since 1986, our
+            owner-operated approach ensures that you have a personal touch on
+            every job. As experts in carpet and tile cleaning, we value your
+            time, your space, and your satisfaction. From using
+            environmentally-friendly products to our attention to detail, we're
+            committed to excellence in every aspect. Whether you're a lifelong
+            friend or a new client, we're here to make your environment
+            healthier and your carpets happier.
           </p>
           <div className="mt-8"></div>
         </div>
