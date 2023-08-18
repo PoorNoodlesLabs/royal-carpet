@@ -11,8 +11,4 @@ module.exports = {
     },
   },
   variants: {},
-  purge: [
-    "./src/**/*.{js,ts,jsx,tsx}",
-    "./src/components/**/*.{js,ts,jsx,tsx}",
-  ],
 };
