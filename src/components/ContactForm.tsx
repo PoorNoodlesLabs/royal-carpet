@@ -196,7 +196,7 @@ export default function () {
             How did you hear about us?
           </label>
           <input
-            className={`text-black block w-full shadow-sm ring-1 ring-inset ring-gray-300 rounded py-3 px-4 mb-3 leading-tight focus:ring-2 focus:ring-inset focus:ring-indigo-600 ${
+            className={`text-black appearance-none block w-full shadow-sm ring-1 ring-inset ring-gray-300 rounded py-3 px-4 mb-3 leading-tight focus:ring-2 focus:ring-inset focus:ring-indigo-600 ${
               errors.source ? "border-l-4 border-red-700" : ""
             }`}
             id="source"
