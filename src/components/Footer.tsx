@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function () {
   return (
-    <footer className="p-4 bg-gray-200 md:flex md:flex-col md:items-center md:justify-center md:px-6">
+    <footer className="p-4 bg-gray-50 md:flex md:flex-col md:items-center md:justify-center md:px-6">
       <div className="w-full flex-col items-center justify-center md:flex md:flex-row">
         <div className="my-4 flex justify-between md:justify-center">
           <div className="flex flex-row justify-evenly w-full">

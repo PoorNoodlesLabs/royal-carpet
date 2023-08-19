@@ -8,6 +8,7 @@ import Example from "@/components/ContactHero";
 export default function () {
   return (
     <DefaultLayout>
+      <h2 className="text-3xl font-extrabold p-6 font-sans">Contact Us</h2>
       <Example image={Owners} />
       <div className="container mx-auto md:flex md:items-center md:justify-between md:p-6">
         <div className="p-4 md:w-1/2">

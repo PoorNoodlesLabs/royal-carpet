@@ -19,7 +19,9 @@ export default function () {
         <section className="mx-auto w-full my-4 px-4 md:py-6 md:flex">
           <div className="w-full mb-4">
             <div className="flex flex-col justify-center align-middle">
-              <h3 className="text-3xl font-bold  mb-2">In a nutshell</h3>
+              <h3 className="text-3xl font-bold font-sans mb-2">
+                In a nutshell
+              </h3>
               <hr className="border-t-4 border-brand-medium w-1/12 mb-4" />
             </div>
             <div>
