@@ -8,7 +8,7 @@ export default function () {
     <footer className="p-4 bg-gray-200 md:flex md:flex-col md:items-center md:justify-center md:px-6">
       <div className="w-full flex-col items-center justify-center md:flex md:flex-row">
         <div className="my-4 flex justify-between md:justify-center">
-          <div className="flex flex-row gap-6 items-center justify-center">
+          <div className="flex flex-row justify-evenly w-full">
             {/* google */}
             <Link
               href="https://www.google.com/maps/place/Royalty+Carpet+%26+Tile+Cleaning/@30.4912414,-97.6730061,15z/data=!4m6!3m5!1s0x8091439d40ad07dd:0xe3f39b2808a2d74a!8m2!3d30.4912414!4d-97.6730061!16s%2Fg%2F1tnpfp5y?hl=en&entry=ttu"
