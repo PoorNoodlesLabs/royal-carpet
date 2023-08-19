@@ -19,7 +19,7 @@ export default function () {
       <nav className="flex md:flex-col items-center justify-between flex-wrap p-6 text-gray-900 sticky top-0 z-50 bg-white">
         <div className="flex items-center flex-shrink-1">
           <Link href="/">
-            <span className="text-2xl md:text-3xl font-bold">
+            <span className="text-2xl md:text-3xl font-bold font-sans">
               Royalty Carpet & Tile
             </span>
           </Link>

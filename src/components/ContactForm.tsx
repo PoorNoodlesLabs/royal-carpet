@@ -82,7 +82,7 @@ export default function () {
   return (
     <div>
       <ToastContainer />
-      <h2 className="text-3xl font-extrabold  my-4">Contact Us</h2>
+      <h2 className="text-3xl font-extrabold my-4 font-sans">Contact</h2>
       <form className="w-full max-w-lg" onSubmit={handleSubmit} noValidate>
         <div className="flex flex-wrap -mx-3">
           <div className="w-full md:w-1/2 px-3 md:mb-0">

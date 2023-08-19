@@ -25,7 +25,7 @@ export default async function () {
     <DefaultLayout>
       <div className="container mx-auto">
         <div className="flex flex-col justify-center align-middle">
-          <h3 className="text-center text-3xl font-extrabold  mt-4 mb-2">
+          <h3 className="text-center text-3xl font-extrabold font-sans mt-4 mb-2">
             Expect Results
           </h3>
           <hr className="border-t-4 self-center border-brand-medium w-1/12" />

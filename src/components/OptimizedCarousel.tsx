@@ -20,7 +20,7 @@ export const OptimizedCarousel = ({ content }) => {
       {content.map((review, i) => {
         return (
           <div
-            className="p-4 leading-relaxed bg-gray-200"
+            className="p-4 leading-relaxed bg-gray-50"
             key={review.title + i}
           >
             {review.title && <h3>{review.title}</h3>}
