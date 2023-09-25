@@ -79,16 +79,15 @@ export default function RootLayout({
       lang="en"
       className={`${lato.className} ${raleway.className} ${notoSansJP.className} ${openSans.className}`}
     >
-      <PlausibleProvider domain="royaltycarpetcleaning.net">
-        <body>{children}</body>
-      </PlausibleProvider>
-      <Script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
-      <Script
-        dangerouslySetInnerHTML={{
-          __html: `
+      <head>
+        <PlausibleProvider domain="royaltycarpetcleaning.net" />
+        <Script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+        <Script
+          dangerouslySetInnerHTML={{
+            __html: `
         !function(f,b,e,v,n,t,s)
         {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
         n.callMethod.apply(n,arguments):n.queue.push(arguments)};
@@ -100,24 +99,26 @@ export default function RootLayout({
         fbq('init', '466267611395999'); 
         fbq('track', 'PageView');
         `,
-        }}
-      />
-      <Script noModule>
-        <img
-          height="1"
-          width="1"
-          src="https://www.facebook.com/tr?id=466267611395999&ev=PageView
-        &noscript=1"
+          }}
         />
-      </Script>
-      <Script
-        id="housecall-pro-chat-bubble"
-        src="https://chat.housecallpro.com/proChat.js"
-        type="text/javascript"
-        data-color="#a0aec0"
-        data-organization="b0c4c76e-5c25-41d4-b35f-1584f801d811"
-        defer
-      />
+        <Script noModule>
+          <img
+            height="1"
+            width="1"
+            src="https://www.facebook.com/tr?id=466267611395999&ev=PageView
+        &noscript=1"
+          />
+        </Script>
+        <Script
+          id="housecall-pro-chat-bubble"
+          src="https://chat.housecallpro.com/proChat.js"
+          type="text/javascript"
+          data-color="#a0aec0"
+          data-organization="b0c4c76e-5c25-41d4-b35f-1584f801d811"
+          defer
+        />
+      </head>
+      <body>{children}</body>
     </html>
   );
 }
